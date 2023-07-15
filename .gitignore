@@ -1,0 +1,25 @@
+# Python/Django specific ignores
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Django configuration files
+*.env
+
+# Static files
+staticfiles/
+media/
+
+# Database files
+*.sql
+*.sqlite3
+*.psql
+*.db
+
+# Environment-specific files
+.env
+
+# Dependency directories
+venv/
+env/
