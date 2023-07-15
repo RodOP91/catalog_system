@@ -11,5 +11,23 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.name} ({self.brand})"
 
+from django.contrib.auth.models import AbstractUser
+
 class User(AbstractUser):
-    is_admin= models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
+
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='catalog_users',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='catalog_users', 
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
+
