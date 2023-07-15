@@ -11,7 +11,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+#Initial admin info
+INITIAL_ADMIN_USERNAME=os.getenv('INITIAL_ADMIN_USERNAME')
+INITIAL_ADMIN_PASSWORD=os.getenv('INITIAL_ADMIN_PASSWORD')
 
 
 # Application definition
@@ -24,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -110,3 +115,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#SWAGGER CONFIG
+SWAGGER_SETTINGS = {
+    'DEFAULT_INFO': 'your_project.urls.swagger_info',
+}
