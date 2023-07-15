@@ -6,8 +6,8 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('sku', 'brand', 'name', 'price', 'query_count')
 
-class UserSerializar(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'is_admin')
+        fields = '__all__'

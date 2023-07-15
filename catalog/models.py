@@ -14,7 +14,7 @@ class Product(models.Model):
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    is_admin = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=True)
 
     groups = models.ManyToManyField(
         'auth.Group',
