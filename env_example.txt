@@ -1,0 +1,15 @@
+DEBUG=True
+SECRET_KEY=django-insecure-0vuysgnzx#!(he)zy+ky(y3wrd9(b%tq!s1l_yh#x0jcf_jl-p
+DB_NAME= <db-name-here>
+DB_USER= <db-user-here>
+DB_PASSWORD= <db-password-here>
+DB_HOST= <db-host-here>
+DB_PORT= <db-port-here>
+
+INITIAL_ADMIN_USERNAME= <admin-username-here>
+INITIAL_ADMIN_PASSWORD= <admin-password-here>
+INITIAL_ADMIN_EMAIL= <admin-email-here>
+
+AWS_SECRET_ACCESS_KEY= <aws-secret-access-key>
+AWS_ACCESS_KEY_ID= <aws-access-key-id>
+DEFAULT_FROM_EMAIL= <default-from-email>
