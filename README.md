@@ -8,7 +8,7 @@ This is a basic catalog system API that allows managing products. It provides en
 - User authentication and authorization.
 - Token-based authentication for API access.
 - Role-based access control for different user types (admins and anonymous users).
-- Tracking the number of times a product is queried by anonymous users.
+- Email notification system (Amazon SES) for admin required operations.
 
 ## Technologies Used
 
