@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog',
+    'catalog_auth',
     'drf_yasg',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +79,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
+AUTH_USER_MODEL= 'catalog_auth.User'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,5 +120,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #SWAGGER CONFIG
 SWAGGER_SETTINGS = {
-    'DEFAULT_INFO': 'your_project.urls.swagger_info',
+    'DEFAULT_INFO': 'catalog_system.urls.swagger_info',
+    'DEFAULT_MODEL_DEPTH':-1,
 }
+
+
+#EMAIL SETTINGS
+EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
+ANYMAIL = {
+    "AMAZON_SES_CLIENT_PARAMS": {
+        "aws_access_key_id": os.getenv('AWS_ACCESS_KEY_ID'),
+        "aws_secret_access_key": os.getenv('AWS_SECRET_ACCESS_KEY'),
+        "region_name": "us-east-2",
+    },
+    #"AWS_ACCESS_KEY_ID": os.getenv('AWS_ACCESS_KEY_ID'),
+    #"AWS_SECRET_ACCESS_KEY": os.getenv('AWS_SECRET_ACCESS_KEY'),
+    #"AWS_REGION": os.getenv('AWS_SES_REGION_NAME'),
+}
+DEFAULT_FROM_EMAIL =  os.getenv('DEFAULT_FROM_EMAIL')

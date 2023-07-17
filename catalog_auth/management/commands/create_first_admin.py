@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
-from catalog.models import User
+from catalog_auth.models import User
 
-from catalog_system import settings
+from django.conf import settings
 
 class Command(BaseCommand):
     help = 'Creando el primer usuario admin'
