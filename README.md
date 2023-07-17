@@ -60,3 +60,10 @@ To run the project locally, follow these steps:
     - Once the first admin is created, you need to access the `api/auth/token` endpoint to get a valid token. This
         token needs to be included in the request's header as 'Authorization:<tolen_value>' for all endpoints that
         require admin level authentication.
+## Tests
+To run tests, simple run `python manage.py test`.
+## Considerations
+- Remember that the env_example.txt is a sample of how you .env file should look like. Replace the placeholders with your values.
+- Amazon SES blocks email sending unless the email address or domain has been verified in the Amazon SES console. In sandbox mode it also has additional limits.
+- This system is API only, so I'd suggest using Postman or a similar software to access it.
+- I'd recommend using `venv`.
