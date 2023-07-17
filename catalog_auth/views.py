@@ -29,8 +29,14 @@ class UserCreateListAPIView(generics.ListCreateAPIView):
         data["password"] = make_password(data["password"])
         serializer = UserSerializer(data=data)
         if serializer.is_valid():
-            user = serializer.save()
-            token = AuthToken.objects.create(user=user)
+            try:
+                user = serializer.save()
+            except Exception as e:
+                print(f"Ocurrió un error al crear el Usuario: {e}")
+            try:
+                token = AuthToken.objects.create(user=user)
+            except Exception as e:
+                print(f"Ocurrió un error al crear el Token: {e}")
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -83,13 +89,9 @@ class TokenAuthenticationView(ObtainAuthToken):
         user = authenticate(request, **serializer.validated_data)
         
         if user:
-            if token.is_expired():
-                token.delete()
-                token = AuthToken.objects.create(user=user)
-
+            token = AuthToken.objects.create(user=user)
             token_serializer = AuthTokenSerializer(token)
             response_data = token_serializer.data
-            print(token_serializer.data)
             response_data['info'] = 'Token generado con éxito.'
             return Response(response_data)
 

@@ -16,6 +16,7 @@ ALLOWED_HOSTS = ['*']
 #Initial admin info
 INITIAL_ADMIN_USERNAME=os.getenv('INITIAL_ADMIN_USERNAME')
 INITIAL_ADMIN_PASSWORD=os.getenv('INITIAL_ADMIN_PASSWORD')
+INITIAL_ADMIN_EMAIL=os.getenv('INITIAL_ADMIN_EMAIL')
 
 
 # Application definition
@@ -133,8 +134,5 @@ ANYMAIL = {
         "aws_secret_access_key": os.getenv('AWS_SECRET_ACCESS_KEY'),
         "region_name": "us-east-2",
     },
-    #"AWS_ACCESS_KEY_ID": os.getenv('AWS_ACCESS_KEY_ID'),
-    #"AWS_SECRET_ACCESS_KEY": os.getenv('AWS_SECRET_ACCESS_KEY'),
-    #"AWS_REGION": os.getenv('AWS_SES_REGION_NAME'),
 }
 DEFAULT_FROM_EMAIL =  os.getenv('DEFAULT_FROM_EMAIL')
