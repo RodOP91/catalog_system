@@ -37,7 +37,7 @@ This is a basic catalog system API that allows managing products. It provides en
 To run the project locally, follow these steps:
 
 1. Clone the repository:
-    `git clone https://github.com/your-username/product-catalog-api.git`
+    `git clone https://github.com/RodOP91/catalog_system.git`
 
 2. Install dependencies:
     `pip install -r requirements.txt`
